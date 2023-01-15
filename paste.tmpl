@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{with .Title}}{{.}}{{else}}Untitled PokePaste{{end}}</title>
+		<link rel="stylesheet" href="/css/paste.css">
+		<meta name="robots" content="noindex">
+	</head>
+	<body>
+	{{- range .Paste}}
+		<article>
+			<div class="img">
+				<img class="img-pokemon" src="/img/pokemon/{{.Pokemon}}-{{.Form}}.png">
+			{{- with .Item}}
+				<img class="img-item" src="/img/items/{{.}}.png">
+			{{- end}}
+			</div>
+			<pre>{{.Text}}
+</pre>
+		</article>
+	{{- end}}
+		<aside>
+		{{- with .Title}}
+			<h1>{{.}}</h1>
+		{{- end}}
+		{{- with .Author}}
+			<h2>&nbsp;by {{.}}</h2>
+		{{- end}}
+		{{- with .Notes}}
+			<p>{{.}}</p>
+		{{- end}}
+			<input id="vgcmode" type="checkbox">
+			<label for="vgcmode">Columns Mode</label> / 
+			<input id="evivmode" type="checkbox">
+			<label for="evivmode">Stat Colours</label> / 
+			<input id="lightmode" type="checkbox">
+			<label for="lightmode">Light Mode</label>
+			
+			<img src="https://image.flaticon.com/icons/png/512/88/88026.png" value="Copy" id="team-pasteable"/>
+		</aside>
+		<script src="/js/copy.js"></script>
+		<script src="/js/preferences.js"></script>
+	</body>
+</html>
