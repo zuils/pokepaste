@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/felixphew/pokepaste"
+	"github.com/zuils/pokepaste"
 )
 
 func main() {
